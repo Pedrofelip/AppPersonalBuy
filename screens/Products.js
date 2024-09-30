@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity, } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity, Alert} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
@@ -106,9 +106,13 @@ export default function Products({navigation}) {
           
       ];
 
+      const handlePress = ( item ) => {
+        Alert.alert("Esgotou", `O produto que você escolheu não temos mais em estoque`);
+      };
+
   // Função para renderizar cada item da lista
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.itemContainer}>
+    <TouchableOpacity style={styles.itemContainer} onPress={handlePress}>
       <Image source={{ uri: item.imageUrl }} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.name}</Text>
