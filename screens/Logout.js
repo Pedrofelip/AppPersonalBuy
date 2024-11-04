@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 export default function Logout({navigation}) {
 
     const logout = async() => {
